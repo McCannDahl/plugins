@@ -36,6 +36,9 @@ void main() {
     ResolutionPreset.high: const Size(720, 1280),
     ResolutionPreset.veryHigh: const Size(1080, 1920),
     ResolutionPreset.ultraHigh: const Size(2160, 3840),
+    ResolutionPreset.high_slowmo: const Size(720, 1280),
+    ResolutionPreset.low_slowmo:
+        Platform.isAndroid ? const Size(240, 320) : const Size(288, 352),
     // Don't bother checking for max here since it could be anything.
   };
 

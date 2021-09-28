@@ -451,6 +451,10 @@ class MethodChannelCamera extends CameraPlatform {
         return 'medium';
       case ResolutionPreset.low:
         return 'low';
+      case ResolutionPreset.high_slowmo:
+        return 'high_slowmo';
+      case ResolutionPreset.low_slowmo:
+        return 'low_slowmo';
       default:
         throw ArgumentError('Unknown ResolutionPreset value');
     }

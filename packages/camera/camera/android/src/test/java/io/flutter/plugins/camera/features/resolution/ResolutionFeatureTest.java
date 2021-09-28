@@ -161,6 +161,20 @@ public class ResolutionFeatureTest {
   }
 
   @Test
+  public void computeBestPreviewSize_shouldUse720PWhenResolutionPresetHighSlowMo() {
+    ResolutionFeature.computeBestPreviewSize(1, ResolutionPreset.high_slowmo);
+
+    mockedStaticProfile.verify(() -> CamcorderProfile.get(1, CamcorderProfile.QUALITY_HIGH_SPEED_HIGH));
+  }
+
+  @Test
+  public void computeBestPreviewSize_shouldUse720PWhenResolutionPresetLowSlowMo() {
+    ResolutionFeature.computeBestPreviewSize(1, ResolutionPreset.low_slowmo);
+
+    mockedStaticProfile.verify(() -> CamcorderProfile.get(1, CamcorderProfile.QUALITY_HIGH_SPEED_LOW));
+  }
+
+  @Test
   public void computeBestPreviewSize_shouldUse720PWhenResolutionPresetVeryHigh() {
     ResolutionFeature.computeBestPreviewSize(1, ResolutionPreset.veryHigh);
 

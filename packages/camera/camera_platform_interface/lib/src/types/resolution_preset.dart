@@ -23,4 +23,10 @@ enum ResolutionPreset {
 
   /// The highest resolution available.
   max,
+
+  /// The highest resolution available for high fps.
+  high_slowmo,
+
+  /// The lowest resolution available for high fps.
+  low_slowmo,
 }

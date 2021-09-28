@@ -12,4 +12,6 @@ public enum ResolutionPreset {
   veryHigh,
   ultraHigh,
   max,
+  high_slowmo,
+  low_slowmo,
 }

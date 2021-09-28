@@ -273,6 +273,8 @@ typedef enum {
   veryHigh,
   ultraHigh,
   max,
+  high_slowmo,
+  low_slowmo,
 } ResolutionPreset;
 
 static ResolutionPreset getResolutionPresetForString(NSString *preset) {
@@ -290,6 +292,10 @@ static ResolutionPreset getResolutionPresetForString(NSString *preset) {
     return ultraHigh;
   } else if ([preset isEqualToString:@"max"]) {
     return max;
+  } else if ([preset isEqualToString:@"high_slowmo"]) {
+    return high_slowmo;
+  } else if ([preset isEqualToString:@"low_slowmo"]) {
+    return low_slowmo;
   } else {
     NSError *error = [NSError errorWithDomain:NSCocoaErrorDomain
                                          code:NSURLErrorUnknown
@@ -563,6 +569,18 @@ NSString *const errorMethod = @"error";
         break;
       }
     case low:
+      if ([_captureSession canSetSessionPreset:AVCaptureSessionPreset352x288]) {
+        _captureSession.sessionPreset = AVCaptureSessionPreset352x288;
+        _previewSize = CGSizeMake(352, 288);
+        break;
+      }
+    case high_slowmo:
+      if ([_captureSession canSetSessionPreset:AVCaptureSessionPreset1280x720]) {
+        _captureSession.sessionPreset = AVCaptureSessionPreset1280x720;
+        _previewSize = CGSizeMake(1280, 720);
+        break;
+      }
+    case low_slowmo:
       if ([_captureSession canSetSessionPreset:AVCaptureSessionPreset352x288]) {
         _captureSession.sessionPreset = AVCaptureSessionPreset352x288;
         _previewSize = CGSizeMake(352, 288);

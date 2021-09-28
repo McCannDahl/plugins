@@ -154,6 +154,14 @@ public class ResolutionFeature extends CameraFeature<ResolutionPreset> {
         if (CamcorderProfile.hasProfile(cameraId, CamcorderProfile.QUALITY_QVGA)) {
           return CamcorderProfile.get(cameraId, CamcorderProfile.QUALITY_QVGA);
         }
+      case high_slowmo:
+        if (CamcorderProfile.hasProfile(cameraId, CamcorderProfile.QUALITY_HIGH_SPEED_HIGH)) {
+          return CamcorderProfile.get(cameraId, CamcorderProfile.QUALITY_HIGH_SPEED_HIGH);
+        }
+      case low_slowmo:
+        if (CamcorderProfile.hasProfile(cameraId, CamcorderProfile.QUALITY_HIGH_SPEED_LOW)) {
+          return CamcorderProfile.get(cameraId, CamcorderProfile.QUALITY_HIGH_SPEED_LOW);
+        }
       default:
         if (CamcorderProfile.hasProfile(cameraId, CamcorderProfile.QUALITY_LOW)) {
           return CamcorderProfile.get(cameraId, CamcorderProfile.QUALITY_LOW);
